@@ -1,0 +1,18 @@
+package: nb_sciserver
+
+platform:
+  - linux-64
+  - osx-64
+  - win-64
+
+engine:
+  - python=3.6
+
+install:
+  - conda build conda.recipe
+  - conda install nb_sciserver --use-local
+
+test:
+  - python -m unittest discover
+
+build_targets: conda

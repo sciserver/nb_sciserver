@@ -1,0 +1,15 @@
+package:
+  name: nb_sciserver
+  version: 0.1.0
+
+requirements:
+  build:
+    - notebook
+    - python
+
+source:
+  path: ../
+
+about:
+  home: TBD
+  license: Apache

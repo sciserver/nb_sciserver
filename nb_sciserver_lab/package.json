@@ -1,0 +1,45 @@
+{
+  "name": "nb_sciserver_lab",
+  "version": "0.1.0",
+  "description": "SciServer extension to easily switch between Classical Jupyter and Jupyterlab",
+  "keywords": [
+    "jupyter",
+    "jupyterlab",
+    "jupyterlab-extension"
+  ],
+  "homepage": "https://github.com/sciserver/nb_sciserver",
+  "bugs": {
+    "url": "https://github.com/sciserver/nb_sciserver/issues"
+  },
+  "license": "BSD-3-Clause",
+  "author": "IDIES",
+  "files": [
+    "lib/**/*.{d.ts,eot,gif,html,jpg,js,js.map,json,png,svg,woff2,ttf}",
+    "style/**/*.{css,eot,gif,html,jpg,json,png,svg,woff2,ttf}"
+  ],
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sciserver/nb_sciserver.git"
+  },
+  "scripts": {
+    "build": "tsc",
+    "clean": "rimraf lib",
+    "watch": "tsc -w",
+    "prepare": "npm run clean && npm run build"
+  },
+  "dependencies": {
+    "@jupyterlab/application": "^0.17.2",
+    "@jupyterlab/apputils": "^0.17.2",
+    "@jupyterlab/coreutils": "^2.0.2",
+    "@jupyterlab/mainmenu": "^0.6.2"
+  },
+  "devDependencies": {
+    "rimraf": "^2.6.1",
+    "typescript": "~2.9.2"
+  },
+  "jupyterlab": {
+    "extension": true
+  }
+}

@@ -8,4 +8,5 @@ setuptools.setup(
     description="SciServer extension to easily switch between Classical Jupyter and Jupyterlab",
     long_description=open('README.md').read(),
     packages=setuptools.find_packages(),
+    package_data={'nb_sciserver': [ 'static/*.js' ]},
 )

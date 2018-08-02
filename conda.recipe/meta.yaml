@@ -5,11 +5,20 @@ package:
 requirements:
   build:
     - notebook
-    - python
+    - python=3.6
+  run:
+    - jupyterlab=0.33
+    - nodejs
+    - notebook
+    - python=3.6
+
+test:
+  imports:
+    - nb_sciserver
 
 source:
   path: ../
 
 about:
-  home: TBD
-  license: Apache
+  home: https://github.com/sciserver/nb_sciserver
+  license: Apache-2.0

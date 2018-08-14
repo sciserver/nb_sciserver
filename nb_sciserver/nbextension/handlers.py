@@ -2,6 +2,7 @@ from tornado import web
 from notebook.base.handlers import IPythonHandler, json_errors, RedirectWithParams
 import os
 from pathlib import Path
+from notebook.utils import url_path_join
 
 # from https://stackoverflow.com/a/3250952/239003
 if 'APPDATA' in os.environ:
@@ -25,9 +26,10 @@ class SciServerRedirectHandler(RedirectWithParams):
         super().initialize("/tree", False)
 
     def get(self):
+        base_url = self.settings.get('base_url', '/')
         if _config_file.exists() and _config_file.read_text() == 'lab':
-            self._url = '/lab?reset'
+            self._url = url_path_join(base_url, 'lab?reset')
         else:
-            self._url = '/tree'
+            self._url = url_path_join(base_url, 'tree')
 
         super().get()

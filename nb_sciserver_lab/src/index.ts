@@ -1,14 +1,8 @@
 import { JupyterLab, JupyterLabPlugin } from '@jupyterlab/application';
 
-import { ICommandPalette } from '@jupyterlab/apputils';
-
 import { PageConfig, URLExt } from '@jupyterlab/coreutils';
 
 import { ServerConnection } from '@jupyterlab/services';
-
-import { IMainMenu } from '@jupyterlab/mainmenu';
-
-import { Menu } from '@phosphor/widgets';
 
 import '../style/index.css';
 
@@ -19,8 +13,7 @@ import '../style/index.css';
 const extension: JupyterLabPlugin<void> = {
   id: 'nb_sciserver_lab',
   autoStart: true,
-  requires: [ICommandPalette, IMainMenu],
-  activate: (app: JupyterLab, palette: ICommandPalette, mainMenu: IMainMenu) => {
+  activate: (app: JupyterLab) => {
 	const base_url = PageConfig.getBaseUrl();
 	const init = { method: 'PUT' };
 	const settings = ServerConnection.makeSettings()
@@ -30,22 +23,6 @@ const extension: JupyterLabPlugin<void> = {
 				throw new ServerConnection.ResponseError(response);
 			}
 		});
-
-	const command: string = 'nb_sciserver:switch-to-classical';
-	app.commands.addCommand(command, {
-		label: 'Switch to Classical Jupyter',
-		execute: () => {
-			window.location.href = URLExt.join(base_url, 'tree')
-		}
-	});
-
-	const menu = new Menu({ commands: app.commands });
-	menu.title.label = 'SciServer';
-
-	palette.addItem({command, category: 'SciServer'});
-	menu.addItem({ command })
-
-	mainMenu.addMenu(menu, {rank: 1000});
   }
 };
 

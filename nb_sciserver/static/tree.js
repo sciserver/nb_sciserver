@@ -16,7 +16,7 @@ define(['jquery', "base/js/utils", "base/js/namespace"], function ($, utils, Jup
 						'</div>'+
 						'<div class="modal-body">'+
 							'<p><a href="https://jupyterlab.readthedocs.io/en/stable/getting_started/overview.html">JupyterLab</a> is the next-generation user interface for Jupyter. In addition to supporting the same Jupyter notebooks as the classical interface, JupyterLab has first-party support for scripts, documents, and other data formats. JupyterLab is currently in <strong>beta</strong>, but <a href="https://blog.jupyter.org/jupyterlab-is-ready-for-users-5a6f039b8906">ready</a> for daily use.</p>'+
-							'<p>From JupyterLab, you can always switch back to the classical Jupyter interface from the <samp>SciServer</samp> menu.</p>'+
+							'<p><i aria-hidden="true" class="fa fa-exclamation-circle"></i>&nbsp;From JupyterLab, you can always switch back to the classical notebook interface from the <samp>Help</samp> menu. SciServer Compute will remember the last interface that was opened.</p>'+
 							'<p class="text-warning">Note: Microsoft browsers (Edge and Internet Explorer) are not supported by JupyterLab.</p>'+
 						'</div>'+
 						'<div class="modal-footer">'+

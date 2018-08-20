@@ -1,3 +1,8 @@
+/*******************************************************************************
+ * Copyright (c) Johns Hopkins University. All rights reserved.
+ * Licensed under the Apache License, Version 2.0.
+ * See LICENSE.txt in the project root for license information.
+ *******************************************************************************/
 define(['jquery', "base/js/utils", "base/js/namespace"], function ($, utils, Jupyter) {
     const load_ipython_extension = function () {
 		const base_url = (Jupyter.notebook_list || Jupyter.notebook).base_url;

@@ -1,3 +1,8 @@
+#*******************************************************************************
+#* Copyright (c) Johns Hopkins University. All rights reserved.
+#* Licensed under the Apache License, Version 2.0.
+#* See LICENSE.txt in the project root for license information.
+#*******************************************************************************
 from tornado import web
 from notebook.base.handlers import IPythonHandler, json_errors, RedirectWithParams
 import os

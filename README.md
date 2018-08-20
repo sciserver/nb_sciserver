@@ -1,29 +1,72 @@
-# nb_sciserver
+<h2>Welcome to SciServer's <a href='https://github.com/sciserver/nb_sciserver'>nb_sciserver</a> repo.</h2>
 
-## Develop
+<h3>Table of Contents</h3>
+<ul>
+<li><a href="#description">Description</a></li>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#usage">Usage</a></li>
+<li><a href="#contributing">Contributing</a></li>
+<li><a href="#license">License</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
 
-```
-python setup.py develop
-jupyter nbextension install --symlink --py nb_sciserver --sys-prefix
-jupyter nbextension enable --py nb_sciserver --sys-prefix
-jupyter serverextension enable --py nb_sciserver --sys-prefix
-```
+<h3 id="description">Description</h3>
 
-Now you are ready to start testing with:
+This repository contains a Jupyter server extension, a Jupyter notebook extension, a JupyterLab extension, and the conda recipe for building all three extensions.
 
-```
-jupyter notebook
-```
+<h4>Components Included<h4>
 
-## Distribution
+* The server extension adds two endpoints to Jupyter: `/sciserver` and `/new_default`. `/sciserver` will redirect to either `/lab?reset` or `/tree` depending on the contents of `~/.config/nb_sciserver/selectedInterface`. Sending an HTTP PUT to `/new_default` will write the contents of the `type` parameter given to the aforementioned file.
+* The Jupyter notebook extension adds a faux tab to the classical Jupyter interface, which shows a dialog describing JupyterLab and offering to open it. It also makes a call to `/new_default?type=tree` on page load.
+* The JupyterLab extension makes a call to `/new_default?type=lab` on page load.
 
-Once you are happy with your extension you can run:
+<h3 id="installation">Installation</h3>
 
-```
-conda build conda.recipe
-```
+<h4>From conda</h4>
 
-And upload your package to [Anaconda-Cloud](http://anaconda.org). So everybody can
-have access to your brand new extension.
+The following command will install and enable nb_sciserver:
 
-> Generated with [generator-nbextension](http://anaconda.org).
+`conda install -c sciserver nb_sciserver`
+
+This will include the JupyterLab extension, and therefore depend on npm and JupyterLab.
+
+<h4>From source</h4>
+
+`pip install .` - install Python extensions
+
+`jupyter nbextension install --sys-prefix --py nb_sciserver` - Install notebook extension (CSS/JavaScript)
+
+`jupyter nbextension enable --sys-prefix --py nb_sciserver` - Enable notebook extension
+
+`jupyter serverextension enable --sys-prefix --py nb_sciserver` - Enable server-side extension
+
+`jupyter labextension install ./nb_sciserver_lab` - Install JupyterLab extension
+
+<h4>Common tasks</h4>
+
+`conda build conda.recipe` - Builds the conda package containing the server and noebook extensions.
+
+`cd nb_sciserver_lab; npm run build` - Builds the JupyterLab extension.
+
+
+<h3 id="usage">Usage</h3>
+
+
+
+<h3 id="contributing">Contributing</h3>
+
+
+
+<h3 id="license">License</h3>
+
+The SciServer Jupyter extensions is licensed under <a href="http://www.sciserver.org/docs/license/LICENCE.txt" target="_blank">Apache 2.0</a>.
+
+This package was originally generated with [generator-nbextension](https://github.com/Anaconda-Platform/generator-nbextension)
+
+<h3 id="contact">Contact</h3>
+
+For technical questions or to report a bug, please email sciserver-helpdesk@jhu.edu.
+
+For questions about collaborating with SciServer or using SciServer for Education, please contact <a href="mailto:sciserver-outreach@lists.johnshopkins.edu">sciserver-outreach@lists.johnshopkins.edu</a>.
+
+For more information about SciServer, what it is, and what you can do with it, please visit www.sciserver.org.

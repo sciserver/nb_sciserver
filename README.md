@@ -12,7 +12,7 @@
 
 <h3 id="description">Description</h3>
 
-This repository contains a Jupyter server extension, a Jupyter notebook extension, a JupyterLab extension, and the conda recipe for building all three extensions.
+This repository contains a Jupyter server extension, a Jupyter notebook extension, a JupyterLab extension, and the conda recipe for building the first two extensions.
 
 <h4>Components Included<h4>
 
@@ -24,11 +24,13 @@ This repository contains a Jupyter server extension, a Jupyter notebook extensio
 
 <h4>From conda</h4>
 
-The following command will install and enable nb_sciserver:
+The following command will install and enable nb_sciserver's server and classical notebook extensions:
 
 `conda install -c sciserver nb_sciserver`
 
-This will include the JupyterLab extension, and therefore depend on npm and JupyterLab.
+The following will install the JupyterLab extension from npm, and therefore require `nodejs`:
+
+`jupyter labextension install nb_sciserver_lab`
 
 <h4>From source</h4>
 

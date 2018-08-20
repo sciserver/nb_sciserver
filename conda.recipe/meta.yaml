@@ -12,8 +12,6 @@ requirements:
     - notebook
     - python=3.6
   run:
-    - jupyterlab=0.33
-    - nodejs
     - notebook
     - python=3.6
 

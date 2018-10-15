@@ -1,6 +1,6 @@
 {
   "name": "nb_sciserver_lab",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "SciServer extension to easily switch between Classical Jupyter and Jupyterlab",
   "keywords": [
     "jupyter",

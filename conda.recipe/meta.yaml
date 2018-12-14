@@ -5,15 +5,15 @@
 #*******************************************************************************
 package:
   name: nb_sciserver
-  version: 0.1.0
+  version: 0.1.1
 
 requirements:
   build:
     - notebook
-    - python=3.6
+    - python={{ python }}
   run:
     - notebook
-    - python=3.6
+    - python={{ python }}
 
 test:
   imports:
